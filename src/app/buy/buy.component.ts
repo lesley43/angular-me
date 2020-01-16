@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Property } from '../property';
-import { Properties } from '../mock-properties';
+import { PropertyService } from '../property.service';
 
 @Component({
   selector: 'app-buy',
@@ -9,35 +10,37 @@ import { Properties } from '../mock-properties';
 })
 export class BuyComponent implements OnInit {
 
-  // define component property to expose Properties array for binding
-  properties = Properties;
-
-  // define selected property
   selectedProperty: Property;
 
-  clickCounter: number = 0;
-  name: string = '';
+  properties: Property[];
 
-  constructor() { }
+  constructor(private propertyService: PropertyService) { }
 
   ngOnInit() {
+    this.getProperties();    
   }
 
-  // assign clicked property from template to component's selectedProperty
-  onSelect(property: Property) : void {
+  onSelect(property: Property): void {
     this.selectedProperty = property;
   }
 
-  countClick() {
-    this.clickCounter += 1;
+  getProperties(): void {
+    this.propertyService.getProperties()
+        .subscribe(properties => this.properties = properties);
   }
 
-  setClasses() {
-    let myClasses = {
-      active: this.clickCounter > 4,
-      notActive: this.clickCounter <= 4,
+
+
+    // example code to be adjusted or deleted later
+    countClick() {
+      this.clickCounter += 1;
     }
-    return myClasses;
-  }
-
+  
+    setClasses() {
+      let myClasses = {
+        active: this.clickCounter > 4,
+        notActive: this.clickCounter <= 4,
+      }
+      return myClasses;
+    }
 }

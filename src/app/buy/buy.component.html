@@ -3,15 +3,18 @@
     <div class="container">
         <p>show all properties</p>
         <ul class="properties">
-        <li *ngFor="let property of properties" (click)="onSelect(property)">
-            {{ property.name }}
-            <img class="property_listing" src="{{ property.image }}" alt="{{ property.name }}">
-            {{ property.address }}
-            {{ property.price }}
-            {{ property.views }}
-        </li>
+            <li *ngFor="let property of properties" 
+                (click)="onSelect(property)">
+                {{ property.name }}
+                <img class="property_listing" src="{{ property.image }}" alt="{{ property.name }}">
+                {{ property.address }}
+                {{ property.price }}
+                {{ property.views }}
+            </li>
         </ul>
     </div>
+
+
 
     <div class="container">
         <p>You clicked <span (click)="countClick()">this</span> {{ clickCounter }} times.</p>
@@ -49,3 +52,4 @@
 
 <!-- send input to property-details -->
 <app-property-details [property]="selectedProperty"></app-property-details>
+<app-messages></app-messages>

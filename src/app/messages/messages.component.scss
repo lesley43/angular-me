@@ -1,0 +1,38 @@
+h2 {
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+body {
+    margin: 2em;
+}
+body, input[text], button {
+    font-family: Cambria, Georgia;
+    color: crimson;
+}
+
+button.clear {
+    background-color: #eee;
+    font-family: Arial;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+button:hover {
+    background-color: #cfd8dc;
+}
+
+button:disabled {
+    color: #aaa;
+    background-color: #eee;
+    cursor: auto;
+}
+
+button.clear {
+    margin-bottom: 12px;
+    color: #333;
+}

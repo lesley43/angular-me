@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PropertyDetailsComponent } from './property-details/property-details.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PropertyDetailsComponent } from './property-details/property-details.co
     RentComponent,
     MortgageComponent,
     HomeComponent,
-    PropertyDetailsComponent
+    PropertyDetailsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
