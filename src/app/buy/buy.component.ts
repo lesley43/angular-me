@@ -14,6 +14,9 @@ export class BuyComponent implements OnInit {
 
   properties: Property[];
 
+  // throw away example
+  clickCounter = 0;
+
   constructor(private propertyService: PropertyService) { }
 
   ngOnInit() {
