@@ -1,0 +1,48 @@
+@import '../../variables';
+
+span {
+    color: $primary;
+    cursor: pointer;
+}
+
+.active {
+    background-color: yellow;
+    color: green;
+}
+
+.notActive {
+    background-color: lightgray;
+    color: purple;
+}
+
+
+
+.property_listing {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        background-color: rgb(238, 238, 238);
+        padding: 1rem;
+        margin-right: 10px;
+        width: 20%;
+        height: 200px;
+        margin-bottom: 1em;
+        display: flex;
+        flex-direction: column;
+    
+
+        p {
+            margin: 0;
+        }
+
+    }
+}

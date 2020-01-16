@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>Rent</h1>
+
+    <!-- if rentals has data, display data in list -->
+    <ul *ngIf="rentals">
+        <li *ngFor="let rental of rentals">
+            <p class="rental">{{ rental.name }}</p>
+            <p class="country">{{ rental.country }}</p>
+            <a href="{{ rental.website_url }}" class="site">site</a>
+        </li>
+    </ul>
+</div>
+

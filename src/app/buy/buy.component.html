@@ -1,0 +1,51 @@
+<div class="container">
+
+    <div class="container">
+        <p>show all properties</p>
+        <ul class="properties">
+        <li *ngFor="let property of properties" (click)="onSelect(property)">
+            {{ property.name }}
+            <img class="property_listing" src="{{ property.image }}" alt="{{ property.name }}">
+            {{ property.address }}
+            {{ property.price }}
+            {{ property.views }}
+        </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <p>You clicked <span (click)="countClick()">this</span> {{ clickCounter }} times.</p>
+    </div>
+
+    <div class="container">
+        <p>
+            <input type="text" [(ngModel)]="name">
+            <br>
+            <strong>You said: </strong> {{ name }}
+        </p>
+    </div>
+    
+    <div class="container" [class.active]="clickCounter > 4">
+        <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+            <p>The click counter is greater than 4.</p>
+        </ng-template>
+        
+        <ng-template #none>
+            <p>The click counter is less than 4.</p>
+        </ng-template>
+    </div>
+
+    <div class="container" [ngClass]="setClasses()">
+        <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+            <p>The click counter is greater than 4.</p>
+        </ng-template>
+        
+        <ng-template #none>
+            <p>The click counter is less than 4.</p>
+        </ng-template>
+    </div>
+
+</div>
+
+<!-- send input to property-details -->
+<app-property-details [property]="selectedProperty"></app-property-details>
