@@ -10,9 +10,11 @@ import { PropertyService } from '../property.service';
 })
 export class BuyComponent implements OnInit {
 
+  readonly properties$: this.propertyService.properties$;
+
   selectedProperty: Property;
 
-  properties: Property[];
+  
 
   // throw away example
   clickCounter = 0;
@@ -20,30 +22,24 @@ export class BuyComponent implements OnInit {
   constructor(private propertyService: PropertyService) { }
 
   ngOnInit() {
-    this.getProperties();    
+   
   }
 
   onSelect(property: Property): void {
     this.selectedProperty = property;
   }
 
-  getProperties(): void {
-    this.propertyService.getProperties()
-        .subscribe(properties => this.properties = properties);
+
+  // example code to be adjusted or deleted later
+  countClick() {
+    this.clickCounter += 1;
   }
-
-
-
-    // example code to be adjusted or deleted later
-    countClick() {
-      this.clickCounter += 1;
-    }
   
-    setClasses() {
-      let myClasses = {
-        active: this.clickCounter > 4,
-        notActive: this.clickCounter <= 4,
-      }
-      return myClasses;
+  setClasses() {
+    const myClasses = {
+      active: this.clickCounter > 4,
+      notActive: this.clickCounter <= 4,
     }
+    return myClasses;
+  }
 }

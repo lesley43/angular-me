@@ -1,9 +1,10 @@
 <div class="container">
 
     <div class="container">
-        <p>show all properties</p>
+        <p>show all </p>
         <ul class="properties">
-            <li *ngFor="let property of properties" 
+            <!-- using async pipe so that template subscribes to observable -->
+            <li *ngFor="let property of (properties$ | async)" 
                 (click)="onSelect(property)">
                 {{ property.name }}
                 <img class="property_listing" src="{{ property.image }}" alt="{{ property.name }}">
@@ -13,13 +14,9 @@
             </li>
         </ul>
     </div>
-
-
-
     <div class="container">
         <p>You clicked <span (click)="countClick()">this</span> {{ clickCounter }} times.</p>
     </div>
-
     <div class="container">
         <p>
             <input type="text" [(ngModel)]="name">
