@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { Property } from './property';
 import { Properties } from './mock-properties';
@@ -18,15 +19,13 @@ import { MessageService } from './message.service';
 })
 export class PropertyService {
 
+  /** learning rxjs is a really important part of having success with Angular.  
+      Here I replaces your getProperties method with a simpler observable stream.
+      Nothing will happen untill somebody subscribes. */
+  readonly properties$ = of(Properties).pipe(
+      tap(() => this.messageService.add('PropertyService: fetched properties'))
+    );
+  
   constructor(private messageService: MessageService) { }
 
-  // HttpClient methods return RxJS observables
-  getProperties() : Observable<Property[]> {
-    // TODO: send message after fetching properties
-    this.messageService.add('PropertyService: fetched properties');
-
-    // of(Properties) returns an Observable<Property[]> that emits a single value (the array of mock properties)
-    // will eventually return an array of properties from body of HTTP response
-    return of(Properties);
-  }
 }
